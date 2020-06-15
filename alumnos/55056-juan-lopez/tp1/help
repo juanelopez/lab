@@ -1,0 +1,16 @@
+./tp1.py -h
+usage: tp1.py [-h] [-r RED] [-g GREEN] [-b BLUE] -s SIZE -f FILE
+
+Tp1 - procesa ppm
+
+optional arguments:
+  -h, --help           		Muestra esta ayuda
+  -r RED, --red RED     	Escala para rojo
+  -g GREEN, --green GREEN	Escala para verde
+  -b BLUE, --blue BLUE  	Escala para azul
+
+  -s SIZE, --size SIZE  	Bloque de lectura
+  -f FILE, --file FILE  	archivo a procesar
+
+
+$ ./tp1.py -s 1024 -f dog.ppm -r 2 -g 0 -b 0.5
