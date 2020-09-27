@@ -63,9 +63,6 @@ def usage():  # Muestra el mensaje de ayuda para ver las opciones
 
 
 def filtrado(color,intensidad,cantidad_lectura,archivo,self):
-
-    #archivo = "dog.ppm"
-    #cantidad_lectura=1024
     try:
         fd = os.open(archivo, os.O_RDONLY)
     except:

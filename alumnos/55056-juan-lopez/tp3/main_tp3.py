@@ -8,7 +8,6 @@ import sys
 import filtro
 import socketserver
 def tipo_archivo(extension):
-    #print("EXTENSION",extension)
     if (extension == "jpg"):
         content_type= "Content-Type: image/"+extension+"\n"
         return content_type
@@ -49,6 +48,8 @@ class Manejador(socketserver.BaseRequestHandler):
         metodo = metodo_lista[0]
         archivo_pedido = metodo_lista[1]
         pedido_llegando = directorio[1:] + archivo_pedido
+        if(directorio == "" or directorio == "/"):
+            pedido_llegando = pedido_llegando[1:]
         version_http = metodo_lista[2]
         archivo_nombre = []
         archivo_nombre = pedido_llegando.split('.',1)
@@ -87,9 +88,7 @@ class Manejador(socketserver.BaseRequestHandler):
                             lectura = os.read(fd1,cantidad_lectura)
                         os.close(fd1)
                         
-            except:
-                
-                print("El archivo no existe")				
+            except:			
                 request = http_version +" "+ codigos[1] +" "+ mensaje[1] +"\n"
                 self.request.sendall(bytes(request, 'utf-8'))
 
